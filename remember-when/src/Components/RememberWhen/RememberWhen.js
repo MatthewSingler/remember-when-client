@@ -1,9 +1,9 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
-import { ApplicationViews } from "./ApplicationViews"
-import { NavBar } from "./nav/NavBar"
-import { Login } from "./auth/Login"
-import { Register } from "./auth/Register"
+import { ApplicationViews } from "../ApplicationViews"
+import { Navbar } from "../Nav/Navbar"
+import { Login } from "../Auth/Login"
+import { Register } from "../Auth/Register"
 
 export const RememberWhen = () => (
     <>
@@ -11,7 +11,7 @@ export const RememberWhen = () => (
             if (localStorage.getItem("lu_token")) {
                 return <>
                     <Route>
-                        <NavBar />
+                        <Navbar />
                         <ApplicationViews />
                     </Route>
                 </>
