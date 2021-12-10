@@ -9,20 +9,20 @@ export const Navbar = () => {
                 <Link className="nav-Link" to="/">Home</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-Link" to="/events">Years</Link>
+                <Link className="nav-Link" to="/years">Years</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-Link" to="/games">Facts</Link>
+                <Link className="nav-Link" to="/facts">Facts</Link>
             </li>
             <li className="navbar__item">
-                <Link className="nav-Link" to="/profile">Categories</Link>
+                <Link className="nav-Link" to="/categories">Categories</Link>
             </li>
             {
-                (localStorage.getItem("lu_token") !== null) ?
+                (localStorage.getItem("rw_token") !== null) ?
                     <li className="nav-item">
                         <button className="nav-link fakeLink"
                             onClick={() => {
-                                localStorage.removeItem("lu_token")
+                                localStorage.removeItem("rw_token")
                                 history.push({ pathname: "/" })
                             }}
                         >Logout</button>
