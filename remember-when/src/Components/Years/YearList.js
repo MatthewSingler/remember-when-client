@@ -24,6 +24,7 @@ export const YearList = () => {
     // }
     useEffect(() => {
         yearFetcher()
+        // fetchCategories()
     }, [])
     const chooseYear = (domEvent) => {
         const yearCopy = { ...currentYear }
@@ -42,6 +43,7 @@ export const YearList = () => {
                         years.map(year => <option value={year.id}>{year.year_number}{year.fact_category}</option>)
                     }
                 </select>
+            
             </>
         </article>
     )
