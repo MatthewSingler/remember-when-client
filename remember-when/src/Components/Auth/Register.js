@@ -6,6 +6,7 @@ export const Register = () => {
     const firstName = useRef()
     const lastName = useRef()
     const username = useRef()
+    const email = useRef()
     const password = useRef()
     const verifyPassword = useRef()
     const passwordDialog = useRef()
@@ -19,7 +20,8 @@ export const Register = () => {
                 "username": username.current.value,
                 "first_name": firstName.current.value,
                 "last_name": lastName.current.value,
-                "password": password.current.value
+                "password": password.current.value,
+                "email": email.current.value
             }
 
             return fetch("http://127.0.0.1:8000/register", {
@@ -33,7 +35,7 @@ export const Register = () => {
                 .then(res => res.json())
                 .then(res => {
                     if ("token" in res) {
-                        localStorage.setItem("lu_token", res.token)
+                        localStorage.setItem("rw_token", res.token)
                         history.push("/")
                     }
                 })
@@ -65,6 +67,10 @@ export const Register = () => {
                     <input ref={username} type="text" name="username" className="form-control" placeholder="Username" required />
                 </fieldset>
                 <fieldset>
+                    <label htmlFor="inputUsername">Username</label>
+                    <input ref={email} type="text" name="email" className="form-control" placeholder="email" required />
+                </fieldset>
+                <fieldset>
                     <label htmlFor="inputPassword"> Password </label>
                     <input ref={password} type="password" name="password" className="form-control" placeholder="Password" required />
                 </fieldset>
@@ -74,7 +80,7 @@ export const Register = () => {
                 </fieldset>
                 <fieldset>
                     <label htmlFor="verifyPassword"> Verify Password </label>
-                    <textarea ref={bio} name="bio" className="form-control" placeholder="Let other gamers know a little bit about you..." />
+                    {/* <textarea ref={bio} name="bio" className="form-control" placeholder="Let other gamers know a little bit about you..." /> */}
                 </fieldset>
                 <fieldset style={{
                     textAlign: "center"

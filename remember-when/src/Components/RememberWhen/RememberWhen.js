@@ -8,7 +8,7 @@ import { Register } from "../Auth/Register"
 export const RememberWhen = () => (
     <>
         <Route render={() => {
-            if (localStorage.getItem("lu_token")) {
+            if (localStorage.getItem("rw_token")) {
                 return <>
                     <Route>
                         <Navbar />
