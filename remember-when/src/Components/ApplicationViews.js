@@ -1,5 +1,6 @@
 import React from "react"
 import { Route } from "react-router-dom"
+import { YearList } from "./Years/YearList"
 
 export const ApplicationViews = () => {
     return <>
@@ -10,7 +11,7 @@ export const ApplicationViews = () => {
             <Route exact path="/years">
                 <YearList />
             </Route>
-            <Route exact path="/categories">
+            {/* <Route exact path="/categories">
                 <CategoryList />
             </Route>
             <Route exact path="/facts">
@@ -30,7 +31,7 @@ export const ApplicationViews = () => {
             </Route>
             <Route exact path="/profile">
                 <Profile />
-            </Route>
+            </Route> */}
         </main>
     </>
 }
