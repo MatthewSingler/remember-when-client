@@ -1,6 +1,8 @@
 import React from "react"
 import { Route } from "react-router-dom"
 import { YearList } from "./Years/YearList"
+import { FactList } from "./Facts/FactList"
+import { FactCategoryList } from "./FactCategories/FactCategoryList"
 
 export const ApplicationViews = () => {
     return <>
@@ -11,13 +13,13 @@ export const ApplicationViews = () => {
             <Route exact path="/years">
                 <YearList />
             </Route>
-            {/* <Route exact path="/categories">
-                <CategoryList />
+            <Route exact path="/categories">
+                <FactCategoryList />
             </Route>
             <Route exact path="/facts">
                 <FactList />
             </Route>
-            <Route exact path="/fact/new">
+            {/* <Route exact path="/fact/new">
                 <FactForm />
             </Route>
             <Route exact path="/fact/edit/:factId">
