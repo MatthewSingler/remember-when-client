@@ -7,6 +7,15 @@ export const getFacts = () => {
         .then(response => response.json())
 }
 
+export const getFactsByYear = (year) => {
+    return fetch(`http://localhost:8000/facts?year=${year}`, {
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("rw_token")}`
+        }
+    })
+        .then(response => response.json())
+}
+
 export const createFact = (fact) => {
     return fetch("http://localhost:8000/facts", {
         method: "POST",
