@@ -2,49 +2,107 @@ import React, { useEffect, useState } from "react"
 import { getYears } from "./YearManager"
 import { useHistory } from "react-router"
 import { getCategories } from "../FactCategories/FactCategoryManager"
-import { getFacts } from "../Facts/FactManager"
+import { getFacts, getFactsByYear } from "../Facts/FactManager"
 
 export const YearList = () => {
     const [years, setYears] = useState([])
     const [currentYear, setCurrentYear] = useState([])
+    const [categories, setCategory] = useState([])
+    const [selectedCategory, currentCategory] = useState([])
+    const [facts, setFacts] = useState([])
+    const [displayedFacts, showFacts] = useState([])
     const history = useHistory()
 
-    // useEffect(() => {
-    //     getYears().then(data => setYears(data))
-    // }, [])
     const yearFetcher = () => {
-        getYears()
-            .then(data => setYears(data))
+        getYears().then(data => setYears(data))
     }
-    // const fetchFacts = () => {
-    //     getFacts().then(data => setFacts(data))
-    // }
-    // const fetchCategories = () => {
-    //     getCategories().then(data => setCategory(data))
-    // }
-    useEffect(() => {
-        yearFetcher()
-        // fetchCategories()
-    }, [])
-    const chooseYear = (domEvent) => {
-        const yearCopy = { ...currentYear }
-        yearCopy[domEvent.target.name] = domEvent.target.value
-        setCurrentYear(yearCopy)
+    const fetchFacts = () => {
+        getFacts().then(data => setFacts(data))
+    }
+    const fetchCategories = () => {
+        getCategories().then(data => setCategory(data))
     }
 
-    return (
-        <article className="years">
-            <>
-                <select name="year" className="form-control"
-                    value={currentYear.yearId}
-                    onChange={chooseYear}>
-                    <option value="0">Select a Year</option>
-                    {
-                        years.map(year => <option value={year.id}>{year.year_number}{year.fact_category}</option>)
+    useEffect(() => {
+        getFactsByYear(currentYear.year).then(data => setFacts(data))
+    }, [currentYear])
+
+    useEffect(() => {
+        let matchedFacts = []
+        if (selectedCategory != []) {
+            for (const fact of facts) {
+                for (const category of fact.category) {
+                    if (category.id == selectedCategory.category) {
+                        matchedFacts.push(fact)
                     }
-                </select>
-            
-            </>
-        </article>
-    )
+                }
+            }
+            setFacts(matchedFacts)
+        }
+    }, [selectedCategory])
+
+        useEffect(() => {
+            yearFetcher()
+            fetchCategories()
+            fetchFacts()
+        }, [])
+    const chooseYear = (domEvent) => {
+            const yearCopy = { ...currentYear }
+            yearCopy[domEvent.target.name] = domEvent.target.value
+        setCurrentYear(yearCopy)
+        }
+        const chooseCategory = (domEvent) => {
+            const categoryCopy = { ...selectedCategory }
+            categoryCopy[domEvent.target.name] = domEvent.target.value
+        currentCategory(categoryCopy)
+        }
+        const relevantFacts = (domEvent) => {
+            const factCopy = { ...displayedFacts}
+            factCopy[domEvent.target.name] = domEvent.target.value
+            showFacts(factCopy)
+        }
+
+        return (
+            <article className="years">
+                <>
+                    <select name="year" className="form-control"
+                        value={currentYear.yearId}
+                        onChange={chooseYear}>
+                        <option value="0">Select a Year</option>
+                        {
+                            years.map(year => <option value={year.id}>{year.year_number}{year.fact_category}</option>)
+                        }
+                    </select>
+                    <select name="category" className="form-control"
+                        value={categories.categoryId}
+                        onChange={chooseCategory}>
+                        <option value="0">Select Category</option>
+                        {
+                            categories.map(category => <option value={category.id}>{category.type}</option>)
+                        }
+                    </select>
+                    {
+                        facts.map(fact => {
+                            return (
+                                <div className="fact__contents">{fact.contents}</div>
+                            )
+                        })
+                    }
+                    {/* {facts.map(fact => {
+                        if (fact.year.id == currentYear.yearId && fact.category.id == categories.categoryId) {
+                            return (
+                                <>
+                                    <section key={`fact--${fact.id}`} className="fact">
+                                        <h3>Fact</h3> 
+                                        <div className="fact__contents">{relevantFacts(fact.id)}</div>
+                                    </section>
+                                </>
+                                )
+                            }
+                        })
+                    } */}
+                    
+                </>
+            </article>
+        )
 }
