@@ -27,3 +27,14 @@ export const createFact = (fact) => {
     })
 }
 
+export const saveFact = (fact) => {
+    return fetch("http://localhost:8000/facts", {
+        method: "POST",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("rw_token")}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(fact)
+    })
+
+}
