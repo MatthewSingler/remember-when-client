@@ -50,11 +50,12 @@ export const YearList = () => {
             const yearCopy = { ...currentYear }
             yearCopy[domEvent.target.name] = domEvent.target.value
         setCurrentYear(yearCopy)
+        currentCategory({category: 0})
         }
         const chooseCategory = (domEvent) => {
             const categoryCopy = { ...selectedCategory }
             categoryCopy[domEvent.target.name] = domEvent.target.value
-        currentCategory(categoryCopy)
+            currentCategory(categoryCopy)
         }
         // const relevantFacts = (domEvent) => {
         //     const factCopy = { ...displayedFacts}
@@ -75,7 +76,7 @@ export const YearList = () => {
                     
                     </select>
                     <select name="category" className="form-control"
-                        value={categories.categoryId}
+                        value={selectedCategory.category}
                         onChange={chooseCategory}>
                         <option value="0">Select Category</option>
                         {
