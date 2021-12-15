@@ -28,8 +28,8 @@ export const YearList = () => {
     }, [currentYear])
 
     useEffect(() => {
-        let matchedFacts = []
-        if (selectedCategory != []) {
+        let matchedFacts = [] /*Variable to hold the facts that get returned from a category*/
+        if (selectedCategory != []) {  /*If the selected category is not an empty array, then loop through the facts and then loop through the category on the facts. If the fact category is the same as the selected category, then we push those facts into the matched facts array and finally update state with setFacts calling matchedFacts.*/
             for (const fact of facts) {
                 for (const category of fact.category) {
                     if (category.id == selectedCategory.category) {
@@ -37,9 +37,9 @@ export const YearList = () => {
                     }
                 }
             }
-            setFacts(matchedFacts)
+            showFacts(matchedFacts)
         }
-    }, [selectedCategory])
+    }, [selectedCategory, currentYear])
 
         useEffect(() => {
             yearFetcher()
@@ -56,11 +56,11 @@ export const YearList = () => {
             categoryCopy[domEvent.target.name] = domEvent.target.value
         currentCategory(categoryCopy)
         }
-        const relevantFacts = (domEvent) => {
-            const factCopy = { ...displayedFacts}
-            factCopy[domEvent.target.name] = domEvent.target.value
-            showFacts(factCopy)
-        }
+        // const relevantFacts = (domEvent) => {
+        //     const factCopy = { ...displayedFacts}
+        //     factCopy[domEvent.target.name] = domEvent.target.value
+        //     showFacts(factCopy)
+        // }
 
         return (
             <article className="years">
@@ -70,8 +70,9 @@ export const YearList = () => {
                         onChange={chooseYear}>
                         <option value="0">Select a Year</option>
                         {
-                            years.map(year => <option value={year.id}>{year.year_number}{year.fact_category}</option>)
+                            years.map(year => <option value={year.id}>{year.year_number}{ }</option>)
                         }
+                    
                     </select>
                     <select name="category" className="form-control"
                         value={categories.categoryId}
@@ -81,12 +82,13 @@ export const YearList = () => {
                             categories.map(category => <option value={category.id}>{category.type}</option>)
                         }
                     </select>
-                    {
-                        facts.map(fact => {
+                    {selectedCategory.category ? 
+                        
+                        displayedFacts.map(fact => {
                             return (
                                 <div className="fact__contents">{fact.contents}</div>
                             )
-                        })
+                        }): ""
                     }
                     {/* {facts.map(fact => {
                         if (fact.year.id == currentYear.yearId && fact.category.id == categories.categoryId) {
