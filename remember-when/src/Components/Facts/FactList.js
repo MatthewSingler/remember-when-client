@@ -21,6 +21,7 @@ export const FactList = () => {
                         <h3>Fact</h3>
                         <div className="fact__category">{fact?.category.type}</div>
                         <div className="fact__contents">{fact?.contents}</div>
+                        <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
                     </section>
                 })
                 }

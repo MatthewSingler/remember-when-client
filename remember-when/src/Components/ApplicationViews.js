@@ -4,6 +4,7 @@ import { YearList } from "./Years/YearList"
 import { FactList } from "./Facts/FactList"
 import { FactCategoryList } from "./FactCategories/FactCategoryList"
 import { FactForm } from "./Facts/FactForm"
+import { CommentForm } from "./Comments/CommentForm"
 export const ApplicationViews = () => {
     return <>
         <main style={{
@@ -24,11 +25,11 @@ export const ApplicationViews = () => {
             </Route>
             {/* <Route exact path="/fact/edit/:factId">
                 <FactForm />
-            </Route>
-            <Route exact path="/comment/new">
+            </Route> */}
+            <Route exact path="/comments/new/:factId(\d+)">
                 <CommentForm />
             </Route>
-            <Route exact path="/comment/edit/:commentId">
+            {/* <Route exact path="/comment/edit/:commentId">
                 <CommentForm />
             </Route>
             <Route exact path="/profile">
