@@ -12,7 +12,7 @@ export const FactForm = () => {
     const [categories, setCategory] = useState([])
     const [selectedCategory, currentCategory] = useState([])
     const history = useHistory()
-    
+    const {factId} = useParams()
     const yearFetcher = () => {
         getYears().then(data => setYears(data))
     }
@@ -30,41 +30,37 @@ export const FactForm = () => {
         setNewFact(copyNewFact)
     }
 
-    const saveFact = (event) => {
-        event.preventDefault()
-
-        createFact(fact).then(() => {
+    const saveFact = (evt) => {
+        evt.preventDefault()
+        createFact(newFact).then(() => {
             history.push('/facts')
         })
     }
-    const chooseYear = (domEvent) => {
-        const yearCopy = { ...currentYear }
-        yearCopy[domEvent.target.name] = domEvent.target.value
-        setCurrentYear(yearCopy)
-    }
-    const chooseCategory = (domEvent) => {
-        const categoryCopy = { ...selectedCategory }
-        categoryCopy[domEvent.target.name] = domEvent.target.value
-        currentCategory(categoryCopy)
-    }
+
+    // const chooseYear = (domEvent) => {
+    //     const yearCopy = { ...currentYear }
+    //     yearCopy[domEvent.target.name] = domEvent.target.value
+    //     setCurrentYear(yearCopy)
+    // }
+    // const chooseCategory = (domEvent) => {
+    //     const categoryCopy = { ...selectedCategory }
+    //     categoryCopy[domEvent.target.name] = domEvent.target.value
+    //     currentCategory(categoryCopy)
+    // }
 
     return (
         <form>
             <select name="year" className="form-control"
                 value={currentYear.yearId}
-                onChange={chooseYear}>
+                onChange={handleOnChange}>
                 <option value="0">Select a Year</option>
                 {
                     years.map(year => <option value={year.id}>{year.year_number}{ }</option>)
                 }
                 </select>
-            {/* <div>
-                <label>Year</label>
-                <input name='year_number' type='number' value={newFact.year_number} onChange={(event) => handleOnChange(event)}></input>
-            </div> */}
             <select name="category" className="form-control"
                 value={selectedCategory.category}
-                onChange={chooseCategory}>
+                onChange={handleOnChange}>
                 <option value="0">Select Category</option>
                 {
                     categories.map(category => <option value={category.id}>{category.type}{ }</option>)
@@ -77,11 +73,16 @@ export const FactForm = () => {
             </div>
 
             <div>
-                <button onClick={(event) => {
-                    if (factId) {
-                        saveFact(event)
-                    }
-                }}>Create</button>
+                <button
+                    onClick={evt => {
+                        evt.preventDefault()
+                        if (factId === undefined) {
+                            saveFact(evt)
+                        }
+                        
+                    }} className="create">Create Fact
+                </button>
+                {/* <button className="create" onClick={() => saveFact()}>Create</button> */}
             </div>
         </form>
     )
