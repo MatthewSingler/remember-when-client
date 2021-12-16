@@ -17,7 +17,7 @@ export const getFactsByYear = (year) => {
 }
 
 export const createFact = (fact) => {
-    return fetch("http://localhost:8000/facts/new", {
+    return fetch("http://localhost:8000/facts", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
@@ -28,7 +28,7 @@ export const createFact = (fact) => {
 }
 
 export const saveFact = (fact) => {
-    return fetch("http://localhost:8000/facts/new", {
+    return fetch("http://localhost:8000/facts", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
