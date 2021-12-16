@@ -3,7 +3,7 @@ import { Route } from "react-router-dom"
 import { YearList } from "./Years/YearList"
 import { FactList } from "./Facts/FactList"
 import { FactCategoryList } from "./FactCategories/FactCategoryList"
-
+import { FactForm } from "./Facts/FactForm"
 export const ApplicationViews = () => {
     return <>
         <main style={{
@@ -19,10 +19,10 @@ export const ApplicationViews = () => {
             <Route exact path="/facts">
                 <FactList />
             </Route>
-            {/* <Route exact path="/fact/new">
+            <Route exact path="/facts/new">
                 <FactForm />
             </Route>
-            <Route exact path="/fact/edit/:factId">
+            {/* <Route exact path="/fact/edit/:factId">
                 <FactForm />
             </Route>
             <Route exact path="/comment/new">
