@@ -23,8 +23,11 @@ export const FactList = () => {
                         <div className="fact__contents">{fact?.contents}</div>
                     </section>
                 })
-            }
+                }
+                <br>
+                </br>
+                <button className="create" onClick={() => history.push('/facts/new')}>Add Fact</button>
         </>
-    </article>
+        </article>
 )
 }
