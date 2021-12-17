@@ -38,3 +38,12 @@ export const saveFact = (fact) => {
     })
 
 }
+export const deleteFact = (factId) => {
+    return fetch(`http://localhost:8000/facts/${factId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("rw_token")}`,
+            'Content-Type': 'application/json'
+        }
+    })
+}

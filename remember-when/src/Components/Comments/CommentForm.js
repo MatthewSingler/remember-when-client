@@ -57,8 +57,8 @@ export const CommentForm = () => {
                 <button
                     onClick={evt => {
                         evt.preventDefault()
-                            saveComment(evt)
-
+                        saveComment(evt)
+                            history.push('/years')
                     }} className="create">Submit Comment
                 </button>
             </div>

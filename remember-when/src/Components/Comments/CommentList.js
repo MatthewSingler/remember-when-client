@@ -6,7 +6,8 @@ import { useParams } from "react-router-dom"
 export const CommentList = () => {
     const [comments, setComments] = useState([])
     const history = useHistory()
-    const {factId} =useParams()
+    const { factId } = useParams()
+    
     const commentFetch = () => {
         getComments().then(data => setComments(data))
     }

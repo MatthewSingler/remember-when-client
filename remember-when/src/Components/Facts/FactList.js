@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react"
-import { getFacts, createFacts } from "./FactManager"
+import { getFacts, createFacts, deleteFact } from "./FactManager"
 import { useHistory } from "react-router"
 import { getComments } from "../Comments/CommentManager"
+import { useParams } from "react-router-dom/cjs/react-router-dom.min"
 
 export const FactList = () => {
     const [facts, setFacts] = useState([])
     const [comments, setComments] = useState([])
     const history = useHistory()
+    const { factId } = useParams
+    
     const factFetch = () => {
         getFacts().then(data => setFacts(data))
     }
+
     const fetchComments = () => {
         getComments().then(data => setComments(data))
     }
@@ -28,6 +32,7 @@ export const FactList = () => {
                         <div className="fact__contents">{fact?.contents}</div>
                         <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
                         <button className="comment" onClick={() => history.push(`/comments/${fact.id}`)}>View Comments</button>
+                        <button className="delete" onClick={() => deleteFact(fact.id).then(() => factFetch(),history.push('/years'))}>Delete Fact</button>
                     </section>
                 })
                 }
