@@ -10,10 +10,9 @@ export const CommentList = () => {
     const {commentId} = useParams()
     
     const commentFetch = () => {
-        getComments().then(data => setComments(data))
+        getCommentsByFact(factId).then(data => setComments(data))
     }
     useEffect(() => {
-        // commentFetch()
         getCommentsByFact(factId).then(data => setComments(data))
     }, [])
 
