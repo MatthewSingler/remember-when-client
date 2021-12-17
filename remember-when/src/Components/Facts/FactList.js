@@ -27,7 +27,7 @@ export const FactList = () => {
             {
                 facts.map(fact => {
                     return <section key={`fact--${fact.id}`} className="fact">
-                        <h3 className="display">{fact.year.year_number}{fact.category.type}</h3>
+                        <h3 className="display">{fact.year.year_number}</h3>
                         <div className="fact__category">{fact?.category.type}</div>
                         <div className="fact__contents">{fact?.contents}</div>
                         <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
