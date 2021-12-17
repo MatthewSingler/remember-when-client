@@ -41,7 +41,7 @@ export const CommentForm = () => {
     const saveComment = (evt) => {
         evt.preventDefault()
         createComment(newComment).then(() => {
-            history.push('/comments')
+            history.push('/years')
         })
     }
     

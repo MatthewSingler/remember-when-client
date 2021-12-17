@@ -83,27 +83,20 @@ export const YearList = () => {
                             categories.map(category => <option value={category.id}>{category.type}</option>)
                         }
                     </select>
-                    {selectedCategory.category ? 
+                    {selectedCategory.category ?
                         
                         displayedFacts.map(fact => {
                             return (
-                                <div className="fact__contents">{fact.contents}</div>
-                            )
-                        }): ""
-                    }
-                    {/* {facts.map(fact => {
-                        if (fact.year.id == currentYear.yearId && fact.category.id == categories.categoryId) {
-                            return (
                                 <>
-                                    <section key={`fact--${fact.id}`} className="fact">
-                                        <h3>Fact</h3> 
-                                        <div className="fact__contents">{relevantFacts(fact.id)}</div>
-                                    </section>
+                                    <div className="fact__contents">{fact.contents}</div>
+                                    <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
+                                    <button className="comment" onClick={() => history.push(`/comments/${fact.id}`)}>View Comments</button>
+                                
                                 </>
-                                )
-                            }
-                        })
-                    } */}
+                                
+                            )
+                        }) : ""
+                    }
                     
                 </>
             </article>
