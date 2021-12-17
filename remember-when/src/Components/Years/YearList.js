@@ -6,7 +6,7 @@ import { getFacts, getFactsByYear } from "../Facts/FactManager"
 
 export const YearList = () => {
     const [years, setYears] = useState([])
-    const [currentYear, setCurrentYear] = useState([])
+    const [currentYear, setCurrentYear] = useState({})
     const [categories, setCategory] = useState([])
     const [selectedCategory, currentCategory] = useState([])
     const [facts, setFacts] = useState([])
@@ -24,7 +24,10 @@ export const YearList = () => {
     }
 
     useEffect(() => {
-        getFactsByYear(currentYear.year).then(data => setFacts(data))
+        if (currentYear != {}) {
+            
+            getFactsByYear(currentYear.year).then(data => setFacts(data))
+        }
     }, [currentYear])
 
     useEffect(() => {
