@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { getComments, getCommentsByFact } from "./CommentManager"
+import { deleteComment, getComments, getCommentsByFact } from "./CommentManager"
 import { useHistory } from "react-router"
 import { useParams } from "react-router-dom"
 
@@ -7,6 +7,7 @@ export const CommentList = () => {
     const [comments, setComments] = useState([])
     const history = useHistory()
     const { factId } = useParams()
+    const {commentId} = useParams()
     
     const commentFetch = () => {
         getComments().then(data => setComments(data))
@@ -15,6 +16,7 @@ export const CommentList = () => {
         // commentFetch()
         getCommentsByFact(factId).then(data => setComments(data))
     }, [])
+
 
     return (
         <article className="comments">
@@ -26,6 +28,7 @@ export const CommentList = () => {
                             <div className="comment__fact">{comment?.fact.contents}</div>
                             <div className="comment__contents">{comment?.contents}
                             </div>
+                            <button className="delete" onClick={() => deleteComment(comment.id).then(() => commentFetch(), history.push('/facts'))}>Delete Comment</button>
                         </section>
                     })
                 }

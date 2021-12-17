@@ -53,3 +53,12 @@ export const saveComment = (comment) => {
         body: JSON.stringify(comment)
     })
 }
+export const deleteComment = (commentId) => {
+    return fetch(`http://localhost:8000/comments/${commentId}`, {
+        method: "DELETE",
+        headers: {
+            "Authorization": `Token ${localStorage.getItem("rw_token")}`,
+            'Content-Type': 'application/json'
+        }
+    })
+}
