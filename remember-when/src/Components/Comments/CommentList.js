@@ -23,8 +23,8 @@ export const CommentList = () => {
                 {
                     comments.map(comment => {
                         return <section key={`comment--${comment.id}`} className="comment">
-                            <h4>Comment About...</h4>
-                            <div className="comment__fact">{comment?.fact.contents}</div>
+                            <div className="comment__fact"><h4>Fact</h4>{comment?.fact.contents}</div>
+                            <br></br>
                             <div className="comment__contents">{comment?.contents}
                             </div>
                             <button className="delete" onClick={() => deleteComment(comment.id).then(() => commentFetch(), history.push('/facts'))}>Delete Comment</button>
