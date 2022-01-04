@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    margin-right: 1.5em;
+}
+
+.nav-item {
+    background-color: gray;
+    border-radius: 5px;
+    border: none;
+}
+
+.nav-item {
+    cursor: pointer;
+    color: whitesmoke
+}
