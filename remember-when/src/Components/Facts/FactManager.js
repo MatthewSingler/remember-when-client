@@ -1,5 +1,5 @@
 export const getFacts = () => {
-    return fetch("http://localhost:8000/facts", {
+    return fetch("https://remember-when-c50.herokuapp.com/facts", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -8,7 +8,7 @@ export const getFacts = () => {
 }
 
 export const getFactsByYear = (year) => {
-    return fetch(`http://localhost:8000/facts?year=${year}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/facts?year=${year}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -17,7 +17,7 @@ export const getFactsByYear = (year) => {
 }
 
 export const createFact = (fact) => {
-    return fetch("http://localhost:8000/facts", {
+    return fetch("https://remember-when-c50.herokuapp.com/facts", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
@@ -28,7 +28,7 @@ export const createFact = (fact) => {
 }
 
 export const saveFact = (fact) => {
-    return fetch("http://localhost:8000/facts", {
+    return fetch("https://remember-when-c50.herokuapp.com/facts", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
@@ -39,7 +39,7 @@ export const saveFact = (fact) => {
 
 }
 export const deleteFact = (factId) => {
-    return fetch(`http://localhost:8000/facts/${factId}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/facts/${factId}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,

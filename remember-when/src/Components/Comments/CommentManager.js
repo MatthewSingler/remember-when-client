@@ -1,5 +1,5 @@
 export const getComments = () => {
-    return fetch("http://localhost:8000/comments", {
+    return fetch("https://remember-when-c50.herokuapp.com/comments", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -8,7 +8,7 @@ export const getComments = () => {
 }
 
 export const getCommentsByYear = (year) => {
-    return fetch(`http://localhost:8000/comments?year=${year}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/comments?year=${year}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -16,7 +16,7 @@ export const getCommentsByYear = (year) => {
         .then(response => response.json())
 }
 export const getCommentsByCategory = (category) => {
-    return fetch(`http://localhost:8000/comments?category=${category}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/comments?category=${category}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -24,7 +24,7 @@ export const getCommentsByCategory = (category) => {
         .then(response => response.json())
 }
 export const getCommentsByFact = (factId) => {
-    return fetch(`http://localhost:8000/comments?facts=${factId}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/comments?facts=${factId}`, {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
@@ -33,7 +33,7 @@ export const getCommentsByFact = (factId) => {
 }
 
 export const createComment = (comment) => {
-    return fetch("http://localhost:8000/comments", {
+    return fetch("https://remember-when-c50.herokuapp.com/comments", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
@@ -44,7 +44,7 @@ export const createComment = (comment) => {
 }
 
 export const saveComment = (comment) => {
-    return fetch("http://localhost:8000/comments", {
+    return fetch("https://remember-when-c50.herokuapp.com/comments", {
         method: "POST",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,
@@ -54,7 +54,7 @@ export const saveComment = (comment) => {
     })
 }
 export const deleteComment = (commentId) => {
-    return fetch(`http://localhost:8000/comments/${commentId}`, {
+    return fetch(`https://remember-when-c50.herokuapp.com/comments/${commentId}`, {
         method: "DELETE",
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`,

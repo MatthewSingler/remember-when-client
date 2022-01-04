@@ -1,5 +1,5 @@
 export const getCategories = () => {
-    return fetch("http://localhost:8000/categories", {
+    return fetch("https://remember-when-c50.herokuapp.com/categories", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }

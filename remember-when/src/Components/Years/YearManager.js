@@ -1,5 +1,5 @@
 export const getYears = () => {
-    return fetch("http://localhost:8000/years", {
+    return fetch("https://remember-when-c50.herokuapp.com/years", {
         headers: {
             "Authorization": `Token ${localStorage.getItem("rw_token")}`
         }
