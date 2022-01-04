@@ -32,5 +32,10 @@ Run server
 1. Users can create a comment about any given fact
 2. Users can display all comments for any given fact.
 
+# Tech Stack
+<h3>Client</h3>
+HTML, CSS, React
 
+<h3>Server</h3>
+Python, Django
 
