@@ -12,6 +12,7 @@ Ensure your server is running
 Run npm start
 
 # Features
+<h4>Register, Log In, Log out</h4>
 
 # Using Remember When
 To use Remember When follow these steps:
