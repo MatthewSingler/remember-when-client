@@ -36,6 +36,6 @@ Run server
 <h3>Client</h3>
 HTML, CSS, React
 
-<h3>Server</h3>
+<h3>Server</h3>  
 Python, Django
 
