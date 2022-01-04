@@ -6,14 +6,14 @@ Before you continue, ensure you have met the following requirements:
 Install current version of Python, React, Django.
 
 To install Remember When follow these steps:
-Clone this repository'   '
-`git clone https://github.com/MatthewSingler/rememberwhen`
-cd to the directory in the terminal
-`cd rememberwhen`
-Install dpendencies
-`npm install`
-Run server
-`npm start`
+Clone this repository  
+`git clone https://github.com/MatthewSingler/rememberwhen`<br/>
+cd to the directory in the terminal  
+`cd rememberwhen`<br/>
+Install dpendencies  
+`npm install`<br/>
+Run server  
+`npm start`<br/>
 
 # Features
 <h3>Register, Log In, Log out</h3>
@@ -32,9 +32,5 @@ Run server
 1. Users can create a comment about any given fact
 2. Users can display all comments for any given fact.
 
-# Using Remember When
-To use Remember When follow these steps:
-Clone Project
-`git clone https://github.com/MatthewSingler/rememberwhen`
 
 
