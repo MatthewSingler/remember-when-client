@@ -11,6 +11,8 @@ Run npm install in the main directory.
 Ensure your server is running
 Run npm start
 
+# Features
+
 # Using Remember When
 To use Remember When follow these steps:
 
