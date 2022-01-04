@@ -1,0 +1,13 @@
+.years {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-control {
+    display: block;
+    margin: 10 10;
+    border: 1px solid whitesmoke;
+    min-width: fit-content;
+    border-radius: 5px;
+}
