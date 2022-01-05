@@ -7,9 +7,9 @@ Install current version of Python, React, Django.
 
 To install Remember When follow these steps:
 Clone this repository  
-`git clone https://github.com/MatthewSingler/rememberwhen`<br/>
+`git clone https://github.com/MatthewSingler/remember-when-client`<br/>
 cd to the directory in the terminal  
-`cd rememberwhen`<br/>
+`cd remember-when-client`<br/>
 Install dpendencies  
 `npm install`<br/>
 Run server  
