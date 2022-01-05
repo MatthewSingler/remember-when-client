@@ -3,7 +3,7 @@ import { getYears } from "./YearManager"
 import { useHistory } from "react-router"
 import { getCategories } from "../FactCategories/FactCategoryManager"
 import { getFacts, getFactsByYear } from "../Facts/FactManager"
-
+import "./years.css"
 export const YearList = () => {
     const [years, setYears] = useState([])
     const [currentYear, setCurrentYear] = useState({})

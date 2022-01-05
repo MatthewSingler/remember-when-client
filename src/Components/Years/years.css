@@ -11,3 +11,7 @@
     min-width: fit-content;
     border-radius: 5px;
 }
+
+.comment {
+    margin: 25px
+}
