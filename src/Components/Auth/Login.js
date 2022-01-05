@@ -13,7 +13,7 @@ export const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault()
 
-        return fetch("https://remember-when-c50.herokuapp.com", {
+        return fetch("https://remember-when-c50.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
