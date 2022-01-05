@@ -21,7 +21,8 @@ export const Login = () => {
             },
             body: JSON.stringify({
                 email: email.current.value,
-                password: password.current.value
+                password: password.current.value,
+                username: username.current.value
             })
         })
             .then(res => res.json())
@@ -46,9 +47,13 @@ export const Login = () => {
                 <form className="form--login" onSubmit={handleLogin}>
                     <h1>Remember When</h1>
                     <h2>Please sign in</h2>
-                    <fieldset>
+                    {/* <fieldset>
                         <label htmlFor="inputEmail"> Email Address </label>
                         <input ref={email} type="text" id="email" className="form-control" placeholder="Email" required autoFocus />
+                    </fieldset> */}
+                    <fieldset>
+                        <label htmlFor="inputUsername"> Username </label>
+                        <input ref={username} type="text" id="username" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
