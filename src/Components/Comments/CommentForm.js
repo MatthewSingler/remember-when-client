@@ -32,7 +32,7 @@ export const CommentForm = () => {
         fetchFacts()
     }, [])
 
-    const handleOnChange = (event) => {
+    const handleOnChange = (event) => {  //the handleOnChange sets the comment with a value, which is a new id for the comment.//
         const copyNewComment = { ...newComment}
         copyNewComment[event.target.name] = event.target.value
         setNewComment(copyNewComment)
@@ -41,7 +41,7 @@ export const CommentForm = () => {
     const saveComment = (evt) => {
         evt.preventDefault()
         createComment(newComment).then(() => {
-            history.push('/years')
+            history.push(`/comments/${factId}`)
         })
     }
     
@@ -58,7 +58,6 @@ export const CommentForm = () => {
                     onClick={evt => {
                         evt.preventDefault()
                         saveComment(evt)
-                            history.push('/years')
                     }} className="create">Submit Comment
                 </button>
             </div>
