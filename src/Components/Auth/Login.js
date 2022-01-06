@@ -22,14 +22,14 @@ export const Login = () => {
             body: JSON.stringify({
                 email: email.current.value,
                 password: password.current.value,
-                username: username.current.value
+                // username: username.current.value
             })
         })
             .then(res => res.json())
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
                     localStorage.setItem("rw_token", res.token)
-                    history.push("/")
+                    history.push("/years")
                 }
                 else {
                     invalidDialog.current.showModal()
@@ -48,8 +48,8 @@ export const Login = () => {
                     <h1>Remember When</h1>
                     <h2>Please sign in</h2>
                     <fieldset>
-                        <label htmlFor="inputEmail"> Email Address </label>
-                        <input ref={email} type="text" id="email" className="form-control" placeholder="Email" required autoFocus />
+                        <label htmlFor="inputUsername"> Username </label>
+                        <input ref={email} type="text" id="email" className="form-control" placeholder="Username" required autoFocus />
                     </fieldset>
                     {/* <fieldset>
                         <label htmlFor="inputUsername"> Username </label>
