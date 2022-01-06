@@ -17,9 +17,9 @@ Run server
 
 # Features
 <h3>Register, Log In, Log out</h3>
-1. Register a user
-2. Log in with credentials
-3. Logout with button click
+1. Register a user  
+2. Log in with credentials  
+3. Logout with button click  
 
 <h3>Facts List</h3>
 1. Facts are listed in ascending order by year
