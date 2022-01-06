@@ -28,6 +28,7 @@ export const CommentList = () => {
                             <div className="comment__contents">{comment?.contents}
                             </div>
                             <button className="delete" onClick={() => deleteComment(comment.id).then(() => commentFetch(), history.push('/facts'))}>Delete Comment</button>
+                            <button className="return" onClick={() => history.push(`/facts/${factId}`)}>Back</button>
                         </section>
                     })
                 }
