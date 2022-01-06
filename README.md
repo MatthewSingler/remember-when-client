@@ -3,7 +3,7 @@ Remember When is an application that allows users to participate in adding memor
 
 # Prerequisites
 Before you continue, ensure you have met the following requirements:
-Install current version of Python, React, Django.
+Install current version of Python, React, Django. Use Chrome as your browser.
 
 To install Remember When follow these steps:
 Clone this repository  
