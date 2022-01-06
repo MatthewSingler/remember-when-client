@@ -36,7 +36,7 @@ export const Register = () => {
                 .then(res => {
                     if ("token" in res) {
                         localStorage.setItem("rw_token", res.token)
-                        history.push("/")
+                        history.push("/years")
                     }
                 })
         } else {
