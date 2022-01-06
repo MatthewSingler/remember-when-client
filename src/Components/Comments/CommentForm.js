@@ -49,7 +49,7 @@ export const CommentForm = () => {
         <form>
 
             <div>
-                <label>Contents</label>
+                <label>Comment</label>
                 <input type="text" name="contents" value={newComment.contents} onChange={(event) => handleOnChange(event)}></input>
             </div>
 
