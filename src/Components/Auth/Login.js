@@ -1,9 +1,6 @@
 import React, { useRef } from "react"
 import { Link, useHistory } from "react-router-dom"
 import "./Auth.css"
-// import { Button } from "@material-ui/core"
-// import theme from './AuthTheme.js'
-
 
 export const Login = () => {
     const username = useRef()
@@ -65,7 +62,6 @@ export const Login = () => {
                         textAlign: "center"
                     }}>
                         <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
-                        {/* <Button variant="contained" color="primary">Sign In</Button> */}
                     </fieldset>
                 </form>
             </section>

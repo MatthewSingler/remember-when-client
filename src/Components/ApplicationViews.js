@@ -6,6 +6,7 @@ import { FactCategoryList } from "./FactCategories/FactCategoryList"
 import { FactForm } from "./Facts/FactForm"
 import { CommentForm } from "./Comments/CommentForm"
 import { CommentList } from "./Comments/CommentList"
+
 export const ApplicationViews = () => {
     return <>
         <main style={{
