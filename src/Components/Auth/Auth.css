@@ -73,3 +73,7 @@ fieldset {
 .link--register {
     background-color:#fff
 }
+
+.btn {
+    color: rgb(40, 58, 219);
+}

@@ -15,3 +15,7 @@
     cursor: pointer;
     color: whitesmoke
 }
+
+.nav-link {
+    color: rgb(25, 28, 236);
+}
