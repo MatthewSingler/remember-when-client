@@ -7,23 +7,20 @@ export const Navbar = () => {
     return (
         <ul className="navbar">
             <li className="navbar__item">
+                <button className="link">
                 <Link className="nav-Link" to="/years">Home</Link>
+                </button>
             </li>
             <li className="navbar__item">
+                <button className="link">
                 <Link className="nav-Link" to="/facts">Facts</Link>
+                </button>
             </li>
             <li className="navbar__item">
+                <button className="link">
                 <Link className="nav-Link" to="/facts/new">Add Fact</Link>
+                </button>
             </li>
-            {/* <li className="navbar__item">
-                <Link className="nav-Link" to="/years">Years</Link>
-            </li> */}
-            {/* <li className="navbar__item">
-                <Link className="nav-Link" to="/categories">Categories</Link>
-            </li>
-            <li className="navbar__item">
-                <Link className="nav-Link" to="/comments">Comments</Link>
-            </li> */}
             {
                 (localStorage.getItem("rw_token") !== null) ?
                     <li className="nav-item">
