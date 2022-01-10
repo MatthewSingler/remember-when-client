@@ -91,9 +91,11 @@ export const YearList = () => {
                         displayedFacts.map(fact => {
                             return (
                                 <>
-                                    <div className="fact__contents">{fact.contents}</div>
+                                    <div className="fact__contents">{fact.contents}
+                                        <br></br>
                                     <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
                                     <button className="comment" onClick={() => history.push(`/comments/${fact.id}`)}>View Comments</button>
+                                    </div>
                                 
                                 </>
                                 
