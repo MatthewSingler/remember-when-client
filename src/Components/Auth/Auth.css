@@ -45,7 +45,10 @@ fieldset {
 
 .container--login {
     text-align: center;
-    background-color: #3ee0ff
+    background-color: #3ee0ff;
+    border: 0rem;
+    width: 100%;
+    
 }
 
 .form--login {
@@ -72,4 +75,8 @@ fieldset {
 
 .link--register {
     background-color:#fff
+}
+
+.btn {
+    color: rgb(40, 58, 219);
 }

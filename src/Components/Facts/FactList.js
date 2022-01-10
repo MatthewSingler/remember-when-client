@@ -3,6 +3,7 @@ import { getFacts, createFacts, deleteFact } from "./FactManager"
 import { useHistory } from "react-router"
 import { getComments } from "../Comments/CommentManager"
 import { useParams } from "react-router-dom/cjs/react-router-dom.min"
+import "./facts.css"
 
 export const FactList = () => {
     const [facts, setFacts] = useState([])
@@ -27,9 +28,11 @@ export const FactList = () => {
             {
                 facts.map(fact => {
                     return <section key={`fact--${fact.id}`} className="fact">
+                        <span className="fact-block">
                         <h3 className="display">{fact.year.year_number}</h3>
-                        <div className="fact__category">{fact?.category.type}</div>
-                        <div className="fact__contents">{fact?.contents}</div>
+                        <p className="fact__category">{fact?.category.type}</p>
+                        <p className="fact-contents">{fact?.contents}</p>
+                        </span>
                         <button className="comment" onClick={() => history.push(`/comments/new/${fact.id}`)}>Comment</button>
                         <button className="comment" onClick={() => history.push(`/comments/${fact.id}`)}>View Comments</button>
                         <button className="delete" onClick={() => deleteFact(fact.id).then(() => factFetch(),history.push('/years'))}>Delete Fact</button>
